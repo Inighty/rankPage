@@ -1,0 +1,28 @@
+.table{
+    table-layout:fixed;
+    word-break:break-all;
+    border-collapse:collapse;
+    border: 1px solid;
+}
+
+.table th{
+    border-collapse:collapse;
+    border: 1px solid;
+}
+
+.table td{
+    border-collapse:collapse;
+    border: 1px solid;
+
+    height: 20px;
+}
+
+.tableAll{
+    margin: 0 auto;
+    width: 800px;
+    height: auto;
+}
+
+#total{
+
+}
