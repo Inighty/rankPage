@@ -23,6 +23,7 @@
     height: auto;
 }
 
-#total{
-
+#player1{
+    float: left;
+    width: 400px;
 }
