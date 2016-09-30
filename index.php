@@ -53,7 +53,7 @@
     <?php
     for ($i = 1; $i <= $pageCount; $i++) {
 		if($i == $pageNow){
-			echo "<strong>$i</strong>";
+			echo "<strong>$i</strong>&nbsp;";
 		}
 		else{
 			echo "<a href='index.php?page=$i'>" . $i . "</a>&nbsp;";
