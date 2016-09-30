@@ -27,3 +27,7 @@
     float: left;
     width: 400px;
 }
+
+.pagelink{
+    text-decoration: none;
+}

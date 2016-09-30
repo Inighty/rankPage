@@ -52,12 +52,11 @@
     <!--    <input type='submit' value='GO'></form>-->
     <?php
     for ($i = 1; $i <= $pageCount; $i++) {
-		if($i == $pageNow){
-			echo "<strong>$i</strong>&nbsp;";
-		}
-		else{
-			echo "<a href='index.php?page=$i'>" . $i . "</a>&nbsp;";
-		}
+        if ($i == $pageNow) {
+            echo "<strong>$i</strong>&nbsp;";
+        } else {
+            echo "<a class='pagelink' href='index.php?page=$i'>" . $i . "</a>&nbsp;";
+        }
     }
     ?>
 </div>
