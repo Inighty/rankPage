@@ -52,7 +52,7 @@
     <!--    <input type='submit' value='GO'></form>-->
     <?php
     for ($i = 1; $i <= $pageCount; $i++) {
-		if(&i.equals($pageNow)){
+		if($i == $pageNow){
 			echo "<strong>$i</strong>";
 		}
 		else{
