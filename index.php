@@ -52,7 +52,12 @@
     <!--    <input type='submit' value='GO'></form>-->
     <?php
     for ($i = 1; $i <= $pageCount; $i++) {
-        echo "<a href='index.php?page=$i'>" . $i . "</a>&nbsp;";
+		if(&i.equals($pageNow)){
+			echo "<strong>$i</strong>";
+		}
+		else{
+			echo "<a href='index.php?page=$i'>" . $i . "</a>&nbsp;";
+		}
     }
     ?>
 </div>
