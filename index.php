@@ -24,13 +24,16 @@
             <th width="60px">评论数</th>
             <th width='180px'>更新时间</th>
         </tr>
+
         <?php
+        //获取要跳转的页数
         $pageNow = 1;
         if (!empty($_GET['page'])) {
             $pageNow = $_GET['page'];
         }
         $pageCount = $a->get_rank($pageNow, $rowCount);
         ?>
+
     </table>
 
     <?php
@@ -51,12 +54,29 @@
     <!--<form action='index.php'>跳转到：<input type='text' name='page'/>-->
     <!--    <input type='submit' value='GO'></form>-->
     <?php
-    for ($i = 1; $i <= $pageCount; $i++) {
-        if ($i == $pageNow) {
-            echo "<strong>$i</strong>&nbsp;";
+    $pageShow = 10;
+    for ($i = 1; $i <= $pageShow; $i++) {
+        if ($pageNow < 7) {
+            if ($i == $pageNow) {
+                echo "<strong>$i</strong>&nbsp;";
+            } else {
+                echo "<a class='pagelink' href='index.php?page=$i'>" . $i . "</a>&nbsp;";
+            }
         } else {
-            echo "<a class='pagelink' href='index.php?page=$i'>" . $i . "</a>&nbsp;";
+            $jumpPage = $pageNow - ($pageShow / 2) + $i - 1;
+            if ($jumpPage == $pageNow) {
+                echo "<strong>$jumpPage</strong>&nbsp;";
+            } else {
+                echo "<a class='pagelink' href='index.php?page=$jumpPage'>" . $jumpPage . "</a>&nbsp;";
+            }
         }
+
+
+//        if ($i == $pageNow) {
+//            echo "<strong>$i</strong>&nbsp;";
+//        } else {
+//            echo "<a class='pagelink' href='index.php?page=$i'>" . $i . "</a>&nbsp;";
+//        }
     }
     ?>
 </div>

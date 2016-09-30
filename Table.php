@@ -84,13 +84,15 @@ class Table
                 $mp3_pic = $music_info["pic"];
                 $mp3_url = $music_info["url"];
 
-
+                $mp3_name = strstr($row["songname"],"'")? str_replace("'","\\'",$row["songname"]):$row["songname"];
+                $mp3_artist = strstr($row["artist"],"'")? str_replace("'","\\'",$row["artist"]):$row["artist"];
+//                echo check_single_yin($row["songname"]);
                 if (!empty($mp3_url)) {
                     echo "<tr style='border:1px solid;'><td style='word-wrap:break-word;' width='300px' align='center'><a style='text-decoration: none' target='_blank' href='http://music.163.com/#/song?id={$row['songid']}'>{$row["songname"]}</a></td>"
                         . "<td align='center'>{$row["artist"]}</td>"
                         . "<td align='right'>{$row["count"]}</td>"
                         . "<td align='center'>{$row["modifytime"]}</td></tr>";
-                    $js_change .= "{title:'{$row['songname']}',author:'{$row['artist']}',url:'$mp3_url',pic:'$mp3_pic'},";
+                    $js_change .= "{title:'$mp3_name',author:'$mp3_artist',url:'$mp3_url',pic:'$mp3_pic'},";
 
                 } else {
                     echo "<tr style='border:1px solid;'><td style='word-wrap:break-word;' width='300px' align='center'><a style='text-decoration: line-through' target='_blank' href='http://music.163.com/#/song?id={$row['songid']}'>{$row["songname"]}</a></td>"
@@ -163,6 +165,13 @@ class Table
         return $this->curl_get($url);
     }
 
+
+    function check_single_yin($str){
+        if(strstr($str,"\'")){
+            echo $str."存在单引号";
+        }
+        else{}
+    }
 //    function get_music_url($music_id)
 //    {
 //        $url = "http://music.163.com/api/song/detail/?id=" . $music_id . "&ids=%5B" . $music_id . "%5D";
